@@ -1,0 +1,5 @@
+cmd:
+cd ./1.StyleGAN
+python3 dataset_tool.py --source=./training_data/4KL7 --dest=./training_data/4KL7.zip --resolution=512x512
+python3 train.py --outdir=training-runs --data=./training_data/4KL7.zip --gpus=1 --batch 12 --batch-gpu=12 --cfg fastgan --kimg 50000 --target 0.45 --d_pos first --noise_sd 0.5
+python3 gen_images.py --outdir=./output_data --seeds=1-3000 --network=./training-runs/00014-fastgan-4KK8_Chipping_add-gpus1-batch12-d_pos-first-noise_sd-0.3-target0.45-ada_kimg100/best_model.pkl
